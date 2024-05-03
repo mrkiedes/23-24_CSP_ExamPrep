@@ -1,7 +1,7 @@
 lockers = []
 
 def printList():
-    for locker in range(1, 101):
+    for locker in range(1, len(lockers)):
         if lockers[locker] == 1:
             print("Locker " + str(locker) + ": " + str(lockers[locker]))
 
@@ -11,23 +11,27 @@ def swapLocker(locker):
     else:
         lockers[locker] = 0
 
-# Only worried about indexes from 1 - 100
-for elem in range(101):
-    lockers.append(0)
+def findPerfectSquares(max):
+    max += 1
+    # Only worried about indexes from 1 - 100
+    for elem in range(max):
+        lockers.append(0)
 
-for elem in range(101):
-    lockers[elem] = 1
+    for elem in range(max):
+        lockers[elem] = 1
 
-for elem in range(101):
-    if elem % 2 == 0:
-        lockers[elem] = 0
+    for elem in range(max):
+        if elem % 2 == 0:
+            lockers[elem] = 0
 
-for student in range(3, 101):
-    for elem in range(101):
-        if elem % student == 0:
-            swapLocker(elem)
+    for student in range(3, max):
+        for elem in range(max):
+            if elem % student == 0:
+                swapLocker(elem)
 
-printList()
+    printList()
 
-# Print List
+
+findPerfectSquares(10000)
+
 
